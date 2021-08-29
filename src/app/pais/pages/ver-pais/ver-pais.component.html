@@ -1,0 +1,37 @@
+<section class="data-pais">
+    <div class="wrapper">
+        <button class="btn-atras" type="button" (click)="back()">
+            <i class="fas fa-arrow-left"></i>
+            <p>Back</p>
+        </button>
+        <div class="pais" *ngIf="pais">
+
+            <img [src]="pais.flag" alt="">
+
+            <div class="pais-item">
+                <h2>{{ pais.name }}</h2>
+                <div class="pais-info">
+                    <div class="pais-info-item">
+                        <p>Native Name: <span>{{ pais.nativeName }}</span></p>
+                        <p>Population: <span>{{ pais.population | number }}</span></p>
+                        <p>Region: <span>{{ pais.region }}</span></p>
+                        <p>Sub Region: <span>{{ pais.subregion }}</span></p>
+                        <p>Capital: <span>{{ pais.capital }}</span></p>
+                    </div>
+                    <div class="pais-info-item">
+                        <p>Top Level Domain: <span>{{ pais.topLevelDomain }}</span></p>
+                        <p>Currencies: <span>{{ pais | separador:'currencies' }}</span></p>
+                        <p>Languages: <span>{{ pais | separador:'languages' }}</span></p>
+                    </div>
+                </div>
+                <div class="pais-border">
+                    <p>Border Countries: </p>
+                    <div class="pais-border-countries">
+                        <label *ngFor="let paisCode of pais.borders">{{ paisCode }}</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+/* Estilo para la card */
+@import '../../../../styles.scss';
+
+.card {
+    background-color: $white;
+    box-shadow: $sombra;
+    border-radius: 7px;
+    overflow: hidden;
+    // height: 100%;
+    &-img {
+        width: 100%;
+        height: 20rem;
+        // object-fit: cover;
+    }
+    &-info{
+        padding: 0 2rem 4rem 2rem;
+        p{
+            margin: 0;
+            line-height: 1.4;
+            font-weight: 600;
+            span{
+                font-weight: 300;
+            }
+        }
+    }
+    ul {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+    }
+    &-btn{
+        background-color: $input-light;
+        color: $white;
+        padding: .5rem 1rem;
+        display: inline-block;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+}

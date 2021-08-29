@@ -1,0 +1,49 @@
+<section class="options" id='options'>
+    <div class="wrapper">
+        <div class="options-grid">
+            <form [formGroup]="searchForm" class="search-item" (ngSubmit)="buscar()">
+                <div class="search">
+                    <i class="fas fa-search"></i>
+                    <input type="text"
+                           formControlName="search"
+                           (input)="buscarInput($event)"
+                           placeholder="Search for a country...">
+                </div>
+                <ul class="search-sugerencias" *ngIf="termino.length !== 0">
+                    <li *ngFor="let paisSugerido of paisesSugeridos">
+                        <a  [routerLink]="['/pais', paisSugerido.alpha3Code]">
+                            {{ paisSugerido.name }}
+                        </a>
+                    </li>
+                    <li *ngIf="existeError">
+                        <a href="">
+                            No se encontraron coincidencias con "{{termino}}"
+                        </a>
+                    </li>
+                </ul>
+            </form>
+            <form [formGroup]="regionForm" class="filter-item">
+                <div class="filter">
+                    <select formControlName="region">
+                        <option value="">Filter by Region</option>
+                        <option *ngFor="let region of regiones"
+                                [value]="region">
+                            {{region}}
+                        </option>
+                    </select>
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+<main class="principal">
+    <div class="wrapper">
+        <div class="paises-grid">
+            <app-pais-card class="paises-item" *ngFor="let pais of paises" [pais]='pais'></app-pais-card>
+        </div>
+    </div>
+</main>

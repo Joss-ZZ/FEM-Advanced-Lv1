@@ -1,0 +1,124 @@
+@import '../../../../styles.scss';
+
+/* Estilos para las opciones de búsqueda y filtro */
+.options-grid{
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-row-gap: 2rem;
+    .search{
+        border-radius: 8px;
+        box-shadow: $sombra;
+        display: flex;
+        overflow: hidden;      
+        i{
+            background-color: white;
+            line-height: 3;
+            padding: 0 1.4rem;
+            color: $dark-gray;
+            transition: all .2s ease-in;
+        }
+        input{
+            outline: none;
+            border: none;
+            width: 100%;
+            transition: all .2s ease-in;
+        }
+        &-item{
+            grid-column: 1 / -1;
+            position: relative;
+            @media screen and (min-width: 768px){
+                grid-column: 1 / span 5;
+            }
+        }
+        &-sugerencias{ 
+            padding-left: 0;
+            margin: 0;
+            background-color: $white;
+            position: absolute;
+            left: 0;
+            top: 4.5rem;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: $sombra;
+            overflow: hidden;
+            z-index: 9999;
+            li{              
+                border-bottom: 1px solid rgba($color: #000000, $alpha: .1);
+                box-sizing: border-box;
+                background-color: $white;
+                a{
+                    padding: 1rem 3rem;
+                    display: block;
+                }
+                :hover {
+                        background-color: rgba($color: #000000, $alpha: .1);
+                }
+            }
+        }
+    }
+    .filter{
+        background-color: $white;
+        border-radius: 8px;
+        box-shadow: $sombra;
+        position: relative;
+        overflow: hidden;
+        select {
+            outline: none;
+            border: none;
+            appearance: none;
+            width: 100%;
+            line-height: 3;
+            padding: 0 1.4rem;
+        }
+        i{
+            position: absolute;
+            top: calc(50% - 8.75px);
+            right: 1.4rem;
+            color: $dark-gray;
+        }
+        &-item{
+            grid-column: 1 / span 7;
+            @media screen and (min-width: 768px){
+                grid-column: -3 / -1;
+            }
+        }
+    }
+}
+
+/* Estilos para la grilla de cards de paises */
+.paises-grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-row-gap: 3rem;
+    @media screen and (min-width: 650px){
+        grid-column-gap: 3rem;
+    }
+    @media screen and (min-width: 1200px){
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.paises-item{
+    grid-column: 2 / span 4;
+    @media screen and (min-width: 650px){
+        grid-column: span 3;
+    }
+    @media screen and (min-width: 920px){
+        grid-column: span 2;
+    }
+    @media screen and (min-width: 1200px){
+        grid-column: span 1;
+    }
+}
+
+//Tema dark
+.options{
+    &.dark .search i, &.dark .search input{
+        background-color: $dark-blue;
+        color: $white;
+    }
+    &.dark .search input::placeholder{
+        color: $white;
+    }
+}

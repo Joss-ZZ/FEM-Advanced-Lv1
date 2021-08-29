@@ -1,0 +1,70 @@
+@import '../../../styles.scss';
+
+.header {
+    background-color: $white;
+    padding: 1.2rem 0;
+    box-shadow: $sombra;
+    transition: all .2s ease-in;
+    &.dark{
+        background-color: $dark-blue;
+    }
+}
+
+h3 {
+    @media screen and (min-width: 920px){
+        font-size: 1.8rem;
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-btn{
+        background-color: $input-light;
+        display: flex;
+        align-items: center;
+        height: 1.5rem;
+        width: 4rem;
+        border: none;
+        border-radius: 2rem;
+        position: relative;
+        cursor: pointer;
+        span{
+            padding: $btn-padding;
+            border: 1px solid $input-light;
+            border-radius: 50%;
+            background-color: $white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: -1 * $btn-padding;
+            top: -1 * $btn-padding;
+            transition: transform .2s ease-in-out;
+        }
+        i {
+            color: $color-sol;
+        }
+    }
+    .checkbox:checked + &-btn{
+        background-color: $input-dark;  
+    }
+    .checkbox:checked + &-btn span {
+        background-color: $btn-dark;
+        transform: translateX(4rem - 1.4rem);
+    }
+    .checkbox {
+        display: none;
+    }
+
+    //Theme dark
+    &.dark h3{
+        color: $white;
+        transition: all .2s ease-in;
+    }
+    &.dark.checkbox{
+        background-color: $dark-blue;
+        transition: all .2s ease-in;
+    }
+}

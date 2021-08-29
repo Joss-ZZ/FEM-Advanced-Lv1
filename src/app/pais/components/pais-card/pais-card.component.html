@@ -1,0 +1,12 @@
+<div class="card">
+    <img [src]="pais.flag" alt="" class="card-img">
+    <div class="card-info">
+        <h3>{{pais.name}}</h3>
+        <p>Population: <span>{{pais.population}}</span></p>
+        <p>Region: <span>{{pais.region}}</span></p>
+        <p>Capital: <span>{{pais.capital}}</span></p>
+    </div>
+    <ul>
+        <a [routerLink]="['/pais', pais.alpha3Code]" class="card-btn">Ver más...</a>
+    </ul>
+</div>
